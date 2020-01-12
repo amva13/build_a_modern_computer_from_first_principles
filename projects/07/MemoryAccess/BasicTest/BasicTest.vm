@@ -4,28 +4,28 @@
 // File name: projects/07/MemoryAccess/BasicTest/BasicTest.vm
 
 // Executes pop and push commands using the virtual memory segments.
-push constant 10
-pop local 0
-push constant 21
+push constant 10  // RAM[256]=10
+pop local 0	// RAM[256]=null
+push constant 21 // RAM[256]=21
 push constant 22
 pop argument 2
 pop argument 1
-push constant 36
+push constant 36 // RAM[256]=36
 pop this 6
-push constant 42
+push constant 42 // RAM[256]=42
 push constant 45
 pop that 5
 pop that 2
-push constant 510
+push constant 510 // RAM[256]=510
 pop temp 6
-push local 0
+push local 0 // RAM[256]=local[0]=10
 push that 5
-add
+add // RAM[256]=RAM[256]+RAM[257]=10+that[5]=10+45=55
 push argument 1
-sub
+sub // RAM[256]=54
 push this 6
 push this 6
 add
-sub
+sub // RAM[256]=RAM[256]-RAM[257]=54-this[6]=54-72=-18
 push temp 6
-add
+add // RAM[256]=RAM[256]+RAM[257]=-18+temp[6]=-18+510=492
